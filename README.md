@@ -1,6 +1,6 @@
 # VanguardController
 It's a batch file that unloads/deletes the Riot Vanguard when you're not playing the game. It's for both Valorant and League of Legends.
-It loads Vanguard when the game starts, and unloads when you close your game.
+It loads Vanguard when the game starts, and unloads when you close your game. It works with kernelLoader
 
 You need to launch the games from the batch files for this fo work as intended.
 
