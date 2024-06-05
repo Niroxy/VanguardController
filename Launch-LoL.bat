@@ -31,10 +31,10 @@ if '%errorlevel%' NEQ '0' (
 @ECHO OFF
 
 TASKKILL  /f /im RiotClientServices.exe
-kernelloader -l vgk.sys vgk
-sc.exe create vgc binPath= "C:\Program Files\Riot Vanguard\vgc.exe"
+sc config vgk start= demand
+sc start vgk
 sc config vgc start= demand
-net start vgc
+sc start vgc
 START "" "C:\Program Files\Riot Vanguard\VGTRAY.EXE"
 START "" "<RIOT CLIENT PATH>" --launch-product=league_of_legends --launch-patchline=live
 
@@ -49,8 +49,8 @@ IF ERRORLEVEL 1 (
 )
 
 :CONTINUE
-kernelloader -u vgk
-net stop vgc
+sc stop vgc
+sc stop vgk
 taskkill /f /im vgtray.exe
 sc config vgc start= disabled
-sc delete vgc
+sc config vgk start= disabled
